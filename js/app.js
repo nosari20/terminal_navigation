@@ -34,7 +34,7 @@ var folder = [
     }
     ,
     {
-        title : "cv.txt",
+        title : "plop.txt",
         type : "file",
         url : "cv.txt",
     }
@@ -81,16 +81,17 @@ var $terminal = $terminal_window_content.terminal({
             help : 'ls',
             program : function(prompt,args){
                 var line = '&#09';
-                for (var i = 0, len = folder.length-1; i < len; i++) {
+                for (var i = 0; i < folder.length; i++) {
                     var tmp = '';
-                    console.log(folder[i]);
                     if(folder[i].title.length < 15){
-                        for (var j = 0, len = 15 - folder[i].title.length; j < len; j++) {
+                        for (var j = 0; j < 15 - folder[i].title.length; j++) {
+                            //tmp += '('+j+')';
                             tmp += ' ';
+                            console.log(j);
                         }
                     }
-                    line = line + folder[i].title + '&#09' + tmp;
-                    if(((i+1) % 3 == 0 ) | i == len-1){
+                    line = line + folder[i].title + tmp;
+                    if(((i+1) % 4 == 0 ) | i == folder.length-1){
                         prompt.out(line);
                         line = '&#09';
                     }
